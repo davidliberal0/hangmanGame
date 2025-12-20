@@ -21,7 +21,18 @@ public class Main {
         System.out.println("Welcome to Java Hangman!");
         System.out.println("************************");
 
-        System.out.println(getHangmanArt(2));
+        System.out.println("Word: ");
+
+        // format wordState (so console output doesn't look like an array)
+        for (char c : wordState) {
+            System.out.print(c + " ");
+        }
+
+        System.out.println();
+        System.out.println("Guess a letter: ");
+        char guess = scanner.next().toLowerCase().charAt(0);
+
+        System.out.println(guess);
 
         scanner.close();
     }
@@ -51,17 +62,17 @@ public class Main {
             case 4 -> """
                         o
                        /|\\
-                                            
+                      
                       """;
             case 5 -> """
                         o
                        /|\\
-                       /                  
+                       /
                       """;
             case 6 -> """
                         o
                        /|\\
-                       / \\                     
+                       / \\
                       """;
             default ->
                 "Game over";
