@@ -1,13 +1,35 @@
 package org.example;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        String word = "pizza";
+
+        String filePath = "fruits.txt";
+        ArrayList<String> words = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                words.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File of words was not found!");
+        } catch (IOException e) {
+            System.out.println("An error has occurred");
+        }
+
+        Random random = new Random();
+        String word = words.get(random.nextInt(words.size()));
+
         int wrongGuesses = 0;
 
         Scanner scanner = new Scanner(System.in);
