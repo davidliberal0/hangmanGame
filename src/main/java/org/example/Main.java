@@ -19,7 +19,7 @@ public class Main {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                words.add(line);
+                words.add(line.trim());
             }
         } catch (FileNotFoundException e) {
             System.out.println("File of words was not found!");
