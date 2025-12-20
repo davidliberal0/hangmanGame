@@ -7,7 +7,7 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        String word = "watermelon";
+        String word = "pizza";
         int wrongGuesses = 0;
 
         Scanner scanner = new Scanner(System.in);
@@ -24,6 +24,8 @@ public class Main {
 
 
         while (wrongGuesses < 6) {
+
+            System.out.println(getHangmanArt(wrongGuesses));
 
             System.out.println("Word: ");
 
@@ -48,6 +50,12 @@ public class Main {
                 System.out.println("Wrong guess!\n");
                 wrongGuesses++;
             }
+        }
+
+        if (wrongGuesses >= 6) {
+            System.out.println(getHangmanArt(wrongGuesses));
+            System.out.println("GAME OVER!");
+            System.out.println("The word was " + word);
         }
 
 
